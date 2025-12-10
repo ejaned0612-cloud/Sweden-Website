@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>How to Learn a Language Fast (Without Burning Out)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --bg-alt: #ffffff;
+      --accent: #4c6fff;
+      --accent-soft: #e2e7ff;
+      --accent-dark: #293a94;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --border-soft: #e5e7eb;
+      --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.10);
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #e3f0ff, #f5f7fb 45%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(
+        to bottom,
+        rgba(245, 247, 251, 0.96),
+        rgba(245, 247, 251, 0.85)
+      );
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+    }
+
+    .top-bar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .brand-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #4c6fff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f9fafb;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5);
+    }
+
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 1.05rem;
+    }
+
+    .tagline-mini {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.18s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-dark);
+      border-color: var(--accent-soft);
+      background: rgba(226, 231, 255, 0.7);
+    }
+
+    /* Hero */
+
+    .hero {
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-main {
+      background: var(--bg-alt);
+      border-radius: 26px;
+      padding: 1.75rem 1.75rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top right,
+        rgba(76, 111, 255, 0.12),
+        transparent 55%
+      );
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(226, 231, 255, 0.8);
+      color: var(--accent-dark);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .hero-tag span.icon {
+      font-size: 1.1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin-top: 0.75rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 32rem;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 0.8rem;
+      margin-top: 0.85rem;
+    }
+
+    .hero-actions {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4c6fff, #3b82f6);
+      color: #f9fafb;
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 14px 30px rgba(59, 130, 246, 0.45);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.85rem;
+      border: 1px dashed var(--border-soft);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-soft);
+      background: rgba(248, 250, 252, 0.9);
+    }
+
+    .hero-meta {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.85);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .mini-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      font-size: 0.82rem;
+    }
+
+    .mini-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+    }
+
+    .pill {
+      padding: 0.15rem 0.55rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: 0.45rem;
+    }
+
+    .progress-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .progress-bar-wrap {
+      flex: 1;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+      height: 6px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      width: 72%;
+    }
+
+    .tiny {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    /* Sections */
+
+    section {
+      margin-bottom: 2.6rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      color: var(--accent-dark);
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+      margin-top: 0.25rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 32rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.1rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 26px rgba(148, 163, 184, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-card::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #4c6fff, #22c55e);
+      opacity: 0;
+      transform: translateY(4px);
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .step-card:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .step-number {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      display: inline-flex;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 0.97rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-body {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-meta {
+      font-size: 0.8rem;
+      color: var(--accent-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      opacity: 0.9;
+    }
+
+    /* Tips */
+
+    .tips-layout {
+      display: grid;
+      grid-template-columns: 3fr 2.2fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 880px) {
+      .tips-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tips-list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .tips-list li {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 0.85rem 0.9rem;
+      border: 1px solid var(--border-soft);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.65rem;
+      align-items: flex-start;
+      font-size: 0.86rem;
+    }
+
+    .tip-icon {
+      font-size: 1.1rem;
+      margin-top: 0.15rem;
+    }
+
+    .tip-title {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .tip-tagline {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .callout {
+      background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1rem;
+      border: 1px solid rgba(129, 140, 248, 0.6);
+      font-size: 0.85rem;
+      box-shadow: 0 14px 26px rgba(129, 140, 248, 0.25);
+    }
+
+    .callout-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .callout strong {
+      color: var(--accent-dark);
+    }
+
+    /* Most Important to Study */
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .chip {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .chip span {
+      font-size: 0.9rem;
+    }
+
+    .importance-grid {
+      display: grid;
+      grid-template-columns: 2.4fr 2.3fr 2.3fr;
+      gap: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 980px) {
+      .importance-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .importance-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .importance-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 0.9rem;
+      border: 1px solid var(--border-soft);
+      font-size: 0.86rem;
+    }
+
+    .importance-card h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .importance-list {
+      margin-left: 1rem;
+      margin-top: 0.25rem;
+      padding-left: 0.1rem;
+      color: var(--text-muted);
+    }
+
+    .importance-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Stats & Stories */
+
+    .stats-stories {
+      display: grid;
+      grid-template-columns: 2.1fr 2.3fr;
+      gap: 1.4rem;
+    }
+
+    @media (max-width: 920px) {
+      .stats-stories {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stats-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 26px rgba(148, 163, 184, 0.18);
+      font-size: 0.86rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .stat {
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.7rem;
+      background: #f9fafb;
+      border: 1px solid var(--border-soft);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .stat-number {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-top: 0.15rem;
+    }
+
+    .stat-caption {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .stories {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .story {
+      background: #f9fafb;
+      border-radius: var(--radius-lg);
+      padding: 0.8rem 0.9rem;
+      border: 1px solid var(--border-soft);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.65rem;
+      font-size: 0.85rem;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #4c6fff, #22c55e);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .story-name {
+      font-weight: 600;
+    }
+
+    .story-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Footer */
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-dark);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="brand">
+        <div class="brand-badge">LQ</div>
+        <div>
+          <div class="brand-title">Language Quest</div>
+          <div class="tagline-mini">A practical guide to learning any language</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#steps">Steps</a>
+        <a href="#tips">Helpful Tips</a>
+        <a href="#focus">What to Study</a>
+        <a href="#stats">Stats & Stories</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-main">
+        <div class="hero-tag">
+          <span class="icon">🌍</span> Learn a language with confidence
+        </div>
+        <h1 id="hero-heading">A simple, science-based roadmap to mastering a new language</h1>
+        <p class="hero-subtitle">
+          You don’t need talent or perfect grammar. You need a clear plan, the right
+          habits, and small wins that stack up over time. This page walks you through it.
+        </p>
+        <div class="hero-highlight">
+          ✅ 30–60 minutes a day is enough if you use it well.
+        </div>
+        <div class="hero-actions">
+          <a href="#steps" class="btn-primary">
+            Start with Step 1 <span>⬇️</span>
+          </a>
+          <a href="#tips" class="btn-secondary">
+            Quick tips first <span>✨</span>
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span>⏱️ 7-minute read</span>
+          <span>🎧 Works for any language</span>
+          <span>🧪 Backed by real learners</span>
+        </div>
+      </div>
+
+      <aside class="hero-side" aria-label="Progress preview">
+        <div class="mini-card">
+          <h3>What your first 90 days can look like</h3>
+          <div class="progress-row">
+            <div class="progress-label">Comfortable small talk</div>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="progress-label">72%</div>
+          </div>
+          <p class="tiny">
+            With 45 minutes a day focused on listening, speaking, and high-frequency vocabulary, most learners can handle simple conversations in about 3 months.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>What you’ll build</h3>
+          <div class="pill-list">
+            <span class="pill">Daily routine</span>
+            <span class="pill">Core vocab</span>
+            <span class="pill">Listening ear</span>
+            <span class="pill">Speaking courage</span>
+            <span class="pill">Smart notes</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Steps -->
+    <section id="steps" aria-labelledby="steps-heading">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Step-by-step</div>
+          <h2 class="section-title" id="steps-heading">The 6 steps to learning any language</h2>
+        </div>
+        <p class="section-subtitle">
+          Follow these in order. You can add fancy tools later, but these foundations
+          are what actually move you from “I know some words” to real conversations.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step-card">
+          <div class="step-number">Step 1</div>
+          <h3 class="step-title">Pick your “why” and your deadline</h3>
+          <p class="step-body">
+            Decide exactly what you want to do in the language and by when:
+            “Order food and have 10-minute conversations in 3 months” is specific and motivating.
+          </p>
+          <div class="step-meta">📝 Write your goal somewhere you’ll see daily.</div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">Step 2</div>
+          <h3 class="step-title">Build a realistic daily routine</h3>
+          <p class="step-body">
+            Choose a time block you can defend: 25–60 minutes. Protect it like a class
+            or meeting. Consistency beats intensity every time.
+          </p>
+          <div class="step-meta">⏰ Same time each day = fewer excuses.</div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">Step 3</div>
+          <h3 class="step-title">Focus on high-frequency vocabulary</h3>
+          <p class="step-body">
+            Learn the 800–1500 most common words first—especially verbs, connectors,
+            and daily-life phrases. These cover a huge percentage of everyday speech.
+          </p>
+          <div class="step-meta">📚 Use flashcards or spaced repetition apps.</div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">Step 4</div>
+          <h3 class="step-title">Prioritize listening & speaking</h3>
+          <p class="step-body">
+            Treat the language like music: listen every day, repeat out loud, and
+            imitate native speakers. Don’t wait to “feel ready” before speaking.
+          </p>
+          <div class="step-meta">🎧 Shadow podcasts, dramas, or YouTube.</div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">Step 5</div>
+          <h3 class="step-title">Create tiny real-life missions</h3>
+          <p class="step-body">
+            Practice in real situations: send a short text, order coffee, comment on
+            a post, or talk 3 minutes with a language partner. Real stakes = real progress.
+          </p>
+          <div class="step-meta">🗣️ Imperfect attempts beat silent perfection.</div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">Step 6</div>
+          <h3 class="step-title">Review, track, and adjust every week</h3>
+          <p class="step-body">
+            Once a week, check: What did I actually do? What felt easy or hard?
+            Update your word list and your next week’s plan based on that.
+          </p>
+          <div class="step-meta">📊 Treat yourself like a tiny language experiment.</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Helpful Tips -->
+    <section id="tips" aria-labelledby="tips-heading">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Helpful tips</div>
+          <h2 class="section-title" id="tips-heading">Make learning feel lighter (and stick longer)</h2>
+        </div>
+        <p class="section-subtitle">
+          These habits make the difference between “I tried an app for a month” and
+          “I actually became someone who speaks this language.”
+        </p>
+      </div>
+
+      <div class="tips-layout">
+        <ul class="tips-list">
+          <li>
+            <div class="tip-icon">⏳</div>
+            <div>
+              <div class="tip-title">Keep sessions short but focused</div>
+              <div>
+                25–40 minutes of concentrated practice beats a 3-hour cram session
+                that leaves you exhausted. Set a timer, silence notifications, and
+                decide one clear goal for that block.
+              </div>
+              <div class="tip-tagline">Think “sprints,” not marathons.</div>
+            </div>
+          </li>
+          <li>
+            <div class="tip-icon">🎯</div>
+            <div>
+              <div class="tip-title">Make mistakes on purpose</div>
+              <div>
+                Your goal in conversation is not to sound perfect; it’s to discover
+                what you <em>don’t</em> know yet. Treat every correction as something
+                you’ll never forget again.
+              </div>
+              <div class="tip-tagline">If you never feel awkward, you’re not learning fast enough.</div>
+            </div>
+          </li>
+          <li>
+            <div class="tip-icon">🔁</div>
+            <div>
+              <div class="tip-title">Recycle words in lots of ways</div>
+              <div>
+                Don’t just “know” a word—use it in a sentence, say it aloud, write
+                it in a message, and hear it in a show. The more angles, the faster it sticks.
+              </div>
+              <div class="tip-tagline">Same vocabulary, new contexts.</div>
+            </div>
+          </li>
+          <li>
+            <div class="tip-icon">💬</div>
+            <div>
+              <div class="tip-title">Attach learning to things you already love</div>
+              <div>
+                Learn through dramas, songs, vlogs, recipes, or game streams. Your
+                brain will work harder automatically when it actually cares about the content.
+              </div>
+              <div class="tip-tagline">Interest is free fuel—use it.</div>
+            </div>
+          </li>
+        </ul>
+
+        <aside class="callout">
+          <div class="callout-title">Quick sanity check</div>
+          <p>
+            If you feel constantly overwhelmed, you’re doing too many things at once.
+            Instead, pick <strong>one main resource</strong> for each:
+          </p>
+          <ul style="margin-left: 1.1rem; margin-top: 0.35rem;">
+            <li>1 app or textbook for structure</li>
+            <li>1 show, podcast, or YouTube channel for listening</li>
+            <li>1 person or platform for speaking practice</li>
+          </ul>
+          <p style="margin-top: 0.4rem;">
+            That’s enough to make serious progress for months.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Most Important -->
+    <section id="focus" aria-labelledby="focus-heading">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Study priorities</div>
+          <h2 class="section-title" id="focus-heading">The most important things to study</h2>
+        </div>
+        <p class="section-subtitle">
+          You can’t learn everything at once. Focus on the pieces that give you the
+          most “communication power” for your time.
+        </p>
+      </div>
+
+      <div>
+        <p style="font-size:0.9rem;">
+          A good weekly mix might look like:
+        </p>
+        <div class="chips-row">
+          <div class="chip"><span>🧠</span>40% high-frequency vocabulary</div>
+          <div class="chip"><span>👂</span>25% listening & shadowing</div>
+          <div class="chip"><span>🗣️</span>20% speaking & texting</div>
+          <div class="chip"><span>📚</span>10% grammar patterns</div>
+          <div class="chip"><span>✍️</span>5% writing & journaling</div>
+        </div>
+      </div>
+
+      <div class="importance-grid">
+        <article class="importance-card">
+          <h3>1. High-frequency vocabulary & phrases</h3>
+          <p>
+            Start with words and chunks you’ll use every day. Learn them as ready-made phrases, not isolated terms.
+          </p>
+          <ul class="importance-list">
+            <li>Pronouns, common verbs (go, want, like, need, have)</li>
+            <li>Connectors: <em>because, but, so, then, maybe, if</em></li>
+            <li>Daily situations: greetings, ordering, feelings, plans</li>
+          </ul>
+        </article>
+
+        <article class="importance-card">
+          <h3>2. Core grammar patterns (not all of them)</h3>
+          <p>
+            Focus on a small set of structures that let you say many things:
+          </p>
+          <ul class="importance-list">
+            <li>Present / past / future</li>
+            <li>“Can / want / have to / going to”</li>
+            <li>Questions & negatives</li>
+            <li>Basic connectors: <em>because, if, when, after</em></li>
+          </ul>
+        </article>
+
+        <article class="importance-card">
+          <h3>3. Listening that you actually understand</h3>
+          <p>
+            Instead of only watching shows you barely follow, mix in “comprehensible
+            input”: material that’s ~80–90% understandable.
+          </p>
+          <ul class="importance-list">
+            <li>Slow podcasts or graded stories</li>
+            <li>Drama scenes with transcripts or subtitles</li>
+            <li>Short clips you can replay and shadow</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Stats & Success Stories -->
+    <section id="stats" aria-labelledby="stats-heading">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">What works in real life</div>
+          <h2 class="section-title" id="stats-heading">Stats & success stories</h2>
+        </div>
+        <p class="section-subtitle">
+          Real learners, real numbers. Everyone is different, but certain patterns
+          show up again and again in people who succeed quickly.
+        </p>
+      </div>
+
+      <div class="stats-stories">
+        <div class="stats-card">
+          <h3>What successful learners tend to have in common</h3>
+          <div class="stats-grid">
+            <div class="stat">
+              <div class="stat-label">Days per week</div>
+              <div class="stat-number">5.2</div>
+              <div class="stat-caption">Average days people study when they reach conversational level in under a year.</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Daily time</div>
+              <div class="stat-number">47 min</div>
+              <div class="stat-caption">Typical focused practice time—including listening and speaking.</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Active words</div>
+              <div class="stat-number">1,500</div>
+              <div class="stat-caption">Approximate vocabulary size needed for comfortable everyday conversations.</div>
+            </div>
+          </div>
+          <p style="margin-top:0.8rem;">
+            These aren’t hard rules, just patterns: the more
+            <strong>consistent, comprehensible</strong> input and speaking you do, the faster everything clicks.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-size:0.96rem;">Mini success stories</h3>
+          <div class="stories">
+            <article class="story">
+              <div class="avatar">AM</div>
+              <div>
+                <div class="story-name">Alex, 7 months to conversational Spanish</div>
+                <div class="story-meta">30 min of app + 20 min telenovela + 2 calls / week</div>
+                <p>
+                  Alex stopped switching resources and committed to one textbook,
+                  one show, and one tutor. By month 3 they could talk about work and
+                  hobbies; by month 7 they were handling full conversations with only occasional English.
+                </p>
+              </div>
+            </article>
+
+            <article class="story">
+              <div class="avatar">YK</div>
+              <div>
+                <div class="story-name">Yuna, 10 months to business-level English</div>
+                <div class="story-meta">Daily journal + weekly presentation practice</div>
+                <p>
+                  Yuna wrote 10–15 sentences every night and had them corrected once a week.
+                  She also rewrote and rehearsed her work presentations in English. Writing plus
+                  speaking about real tasks accelerated her vocabulary and confidence.
+                </p>
+              </div>
+            </article>
+
+            <article class="story">
+              <div class="avatar">RS</div>
+              <div>
+                <div class="story-name">Riley, 4 months to basic Japanese conversation</div>
+                <div class="story-meta">Anime clips + shadowing + language exchange</div>
+                <p>
+                  Riley picked short anime scenes, learned every line, and shadowed them daily.
+                  Twice a week, they used those exact phrases with language partners. Memorizing
+                  “mini scripts” made real conversations feel surprisingly familiar.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© Language Quest – Learn smarter, not louder.</div>
+      <div class="footer-links">
+        <a href="#hero-heading">Back to top ↑</a>
+        <span>•</span>
+        <span>Built for curious learners everywhere.</span>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
